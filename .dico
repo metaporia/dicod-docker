@@ -1,0 +1,14 @@
+# dico init file
+
+# disable welcome banner
+quiet yes
+
+# default server
+open localhost
+
+# search in all dbs
+database *
+
+# custom command prefix
+prefix :
+
