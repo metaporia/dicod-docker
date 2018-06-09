@@ -1,0 +1,13 @@
+[Unit]
+Description=Dicod dictionary server
+After=network.target auditd.service
+
+[Service]
+EnvironmentFile=-/etc/default/dicod
+ExecStart=/usr/local/bin/dicod -f $DAEMON_OPTS
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
