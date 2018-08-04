@@ -36,7 +36,8 @@ RUN   rm /lib/systemd/system/dicod@.service \
 EXPOSE 2628
 
 CMD touch /home/pedantry/dicod.log \
-        && service dicod start && bash
+        && service dicod start 
+        && /bin/sh -c "while true; do sleep 1; done"
 # nb: passphrase is 'Enter'-- the key, not the literal. additionally,
 # ./repo-key provides read access to 'git@gitlab.com:metaporia/dicod-docker.git'
 # THIS IS TOTALLY UNNECESSARY
