@@ -6,9 +6,15 @@ docker build . -t dict:latest && docker run --name dict-container --rm -it -d -p
 ```
 
 ## Query running instance
-
-At the moment, port-forwarding/binding is _not_ working, so to request a
-definition from a running instance dicod-docker run the following:
+Assuming that an instance is running, and some <port> is exposed, the following
+query should work:
 ```bash
-docker exec dict-container dico -d* --host localhost <word> | fmt
+dico -p 2628 <word>
 ```
+NB: 
+- on ubuntu/debian the apt package for dico should work. If not download version
+  2.4 of the [dico package] from GNU.
+- on macos use run `brew install dict`. I may containerize the client as well.
+
+
+[dico package]: ftp://download.gnu.org.ua/pub/release/dico/dico-2.4.tar.gz
