@@ -34,10 +34,10 @@ RUN   rm /lib/systemd/system/dicod@.service \
    #&& mv /usr/bin/dico /usr/bin/dico.old
 
 EXPOSE 2628
+ADD start.sh /start.sh
 
-CMD touch /home/pedantry/dicod.log \
-        && service dicod start  \
-        && /bin/sh -c "while true; do sleep 1; done"
+ENTRYPOINT ["/start.sh"]
+
 # nb: passphrase is 'Enter'-- the key, not the literal. additionally,
 # ./repo-key provides read access to 'git@gitlab.com:metaporia/dicod-docker.git'
 # THIS IS TOTALLY UNNECESSARY
