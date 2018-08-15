@@ -30,8 +30,8 @@ COPY ./.dico /home/pedantry/.dico
 RUN /home/pedantry/dico-2.4/modules/gcide/idxgcide /home/pedantry/gcide-0.51
 RUN   rm /lib/systemd/system/dicod@.service \
    && mv /usr/bin/dicod /usr/bin/dicod.old \
-   && ln -s /usr/local/bin/dicod /usr/bin/dicod
-   #&& mv /usr/bin/dico /usr/bin/dico.old
+   && ln -s /usr/local/bin/dicod /usr/bin/dicod \
+   && ln -s /usr/local/bin/dico /usr/bin/dico
 
 EXPOSE 2628
 ADD start.sh /start.sh

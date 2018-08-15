@@ -1,20 +1,33 @@
 # README
 
-## Build and run container instance
+## Aquire container
+
+### Pull image from docker hub
 ```bash
-docker build . -t dict:latest && docker run --name dict-container --rm -it -d -p 2628:2628 dict:latest 
+docker pull beryj7/dicod-docker && \
+    docker run -d --rm --name="dicod" beryj7/dicod-docker
 ```
 
-## Query running instance
-Assuming that an instance is running, and port 2628 is exposed, the following
-query should work:
+### Build and run container instance
+The more involved method: 
+```bash
+docker build . -t beryj7/dicod-docker:latest && \
+    docker run --name=dicod" --rm -d beryj7/dicod-docker:latest 
+```
+
+## Query
+
+### By attaching to DICT server container
+The preferred query method.
+```bash
+docker exec dicod dico [<query-opts>] <word>
+```
+
+### Via exposed port on host system
+Assuming that dico or dict is installed on the host, an instance is running,
+and port 2628 is exposed, the following query should work:
 ```bash
 dico -p 2628 <word>
 ```
-NB: 
-- on ubuntu/debian the apt package for dico should work. If not download version
-  2.4 of the [dico package] from GNU.
-- on macos run `brew install dict`. I may containerize the client as well.
-
 
 [dico package]: ftp://download.gnu.org.ua/pub/release/dico/dico-2.4.tar.gz
