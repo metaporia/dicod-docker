@@ -5,14 +5,14 @@
 ### Pull image from docker hub
 ```bash
 docker pull beryj7/dicod-docker && \
-    docker run -d --rm --name="dicod" beryj7/dicod-docker
+    docker run -d --rm --name="dicod" -p2628:2628 beryj7/dicod-docker
 ```
 
 ### Build and run container instance
 The more involved method: 
 ```bash
 docker build . -t beryj7/dicod-docker:latest && \
-    docker run --name=dicod" --rm -d beryj7/dicod-docker:latest 
+    docker run --name=dicod" --rm -d -p2628:2628 beryj7/dicod-docker:latest 
 ```
 
 ## Query
