@@ -21,7 +21,11 @@ RUN    wget ftp://ftp.gnu.org/gnu/gcide/gcide-0.51.tar.gz \
     && tar xzf gcide-0.51.tar.gz \
     && rm gcide-0.51.tar.gz
 
-RUN apt-get -y install dict-foldoc dict-jargon dict-moby-thesaurus dict-bouvier dict-devil dicod 
+RUN apt-get -y install dict-foldoc dict-jargon dict-moby-thesaurus dict-bouvier dict-devil dicod  \
+    dict-freedict-spa-eng dict-freedict-eng-spa \
+    dict-freedict-eng-lat dict-freedict-lat-eng \
+    dict-freedict-eng-fra dict-freedict-fra-eng
+
 
 COPY ./dicod.conf /usr/local/etc/dicod.conf
 COPY ./dicod.service /lib/systemd/system/dicod.service
