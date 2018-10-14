@@ -44,8 +44,6 @@ RUN 7z x -o/usr/share/dictd /home/pedantry/wikt-en-ALL-2018-05-15-dictd.7z && \
     rm /home/pedantry/wikt-en-ALL-2018-05-15-dictd.7z && \
     dicodconfig -lw # update dict entry list
 
-    
-
 
 EXPOSE 2628
 ADD start.sh /start.sh
