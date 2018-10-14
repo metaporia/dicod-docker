@@ -1,5 +1,5 @@
 FROM debian:stretch
-MAINTAINER Liam & Keane
+MAINTAINER Liam Putname & Keane Yahn-Krafft
 
 RUN mkdir /home/pedantry/
 
@@ -36,6 +36,16 @@ RUN   rm /lib/systemd/system/dicod@.service \
    && mv /usr/bin/dicod /usr/bin/dicod.old \
    && ln -s /usr/local/bin/dicod /usr/bin/dicod \
    && ln -s /usr/local/bin/dico /usr/bin/dico
+
+COPY ./wikt-en-ALL-2018-05-15-dictd.7z /home/pedantry/wikt-en-ALL-2018-05-15-dictd.7z
+RUN apt-get -y install p7zip-full
+
+RUN 7z x -o/usr/share/dictd /home/pedantry/wikt-en-ALL-2018-05-15-dictd.7z && \
+    rm /home/pedantry/wikt-en-ALL-2018-05-15-dictd.7z && \
+    dicodconfig -lw # update dict entry list
+
+    
+
 
 EXPOSE 2628
 ADD start.sh /start.sh

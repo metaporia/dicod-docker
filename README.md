@@ -12,7 +12,7 @@ docker pull beryj7/dicod-docker && \
 The more involved method: 
 ```bash
 docker build . -t beryj7/dicod-docker:latest && \
-    docker run --name=dicod" --rm -d -p2628:2628 beryj7/dicod-docker:latest 
+    docker run --name="dicod" --rm -d -p2628:2628 beryj7/dicod-docker:latest 
 ```
 
 ## Query
