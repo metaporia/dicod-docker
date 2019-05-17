@@ -31,3 +31,7 @@ dico -p 2628 <word>
 ```
 
 [dico package]: ftp://download.gnu.org.ua/pub/release/dico/dico-2.4.tar.gz
+
+### Dico wrapper for [neo]vim
+
+For a nifty vim client see [dico-vim](https://gitlab.com/metaporia/dico-vim).
